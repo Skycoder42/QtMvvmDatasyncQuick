@@ -5,6 +5,7 @@ import QtQuick.Layouts 1.3
 import de.skycoder42.quickextras 2.0
 import de.skycoder42.qtmvvm.quick 1.0
 import de.skycoder42.qtmvvm.datasync.quick 1.0
+import "qrc:/de/skycoder42/qtmvvm/datasync/quick/qml"
 
 Page {
 	id: mainView
@@ -31,9 +32,11 @@ Page {
 		moreMenu: Menu {
 			MenuItem {
 				text: qsTr("Export to file")
+				onClicked: fileDialog.getExportFile()
 			}
 			MenuItem {
 				text: qsTr("Import from file")
+				onClicked: fileDialog.getImportFile()
 			}
 			MenuItem {
 				text: qsTr("Resync")
@@ -92,6 +95,17 @@ Page {
 			text: qsTr("Synchronize")
 
 			onClicked: control.sync()
+		}
+	}
+
+	FileDialog {
+		id: fileDialog
+
+		onAccepted: {
+			if(isExport)
+				control.exportUserData(file)
+			else
+				control.importUserData(file)
 		}
 	}
 }

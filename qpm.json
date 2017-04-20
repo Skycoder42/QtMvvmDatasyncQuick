@@ -15,7 +15,9 @@
     "fingerprint": ""
   },
   "dependencies": [
-    "de.skycoder42.qtmvvm.quick@1.0.3"
+    "de.skycoder42.qtmvvm.quick@1.0.3",
+    "android.native.pri@0.0.4",
+    "de.skycoder42.androidutils@1.0.2"
   ],
   "license": "BSD_3_CLAUSE",
   "pri_filename": "de_skycoder42_qtmvvm_datasync_quick.pri",
