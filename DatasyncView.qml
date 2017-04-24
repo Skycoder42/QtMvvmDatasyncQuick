@@ -3,9 +3,10 @@ import QtQuick.Controls 2.1
 import QtQuick.Controls.Material 2.1
 import QtQuick.Layouts 1.3
 import de.skycoder42.quickextras 2.0
+import de.skycoder42.androidutils 1.1
 import de.skycoder42.qtmvvm.quick 1.0
 import de.skycoder42.qtmvvm.datasync.quick 1.0
-import "qrc:/de/skycoder42/qtmvvm/datasync/quick/qml"
+import Qt.labs.platform 1.0 as Labs
 
 Page {
 	id: mainView
@@ -100,6 +101,24 @@ Page {
 
 	FileDialog {
 		id: fileDialog
+
+		property bool isExport: false
+
+		defaultSuffix: "dse"
+		mimeType: "text/dse"
+		fileMode: isExport ? Labs.FileDialog.SaveFile : Labs.FileDialog.OpenFile
+		folder: Labs.StandardPaths.writableLocation(Labs.StandardPaths.HomeLocation)
+		nameFilters: [qsTr("Datasync Export File (*.dse)"), qsTr("All Files (*)")]
+
+		function getExportFile() {
+			fileDialog.isExport = true;
+			fileDialog.open();
+		}
+
+		function getImportFile() {
+			fileDialog.isExport = false;
+			fileDialog.open();
+		}
 
 		onAccepted: {
 			if(isExport)
