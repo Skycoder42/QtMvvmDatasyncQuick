@@ -6,7 +6,7 @@ import de.skycoder42.quickextras 2.0
 import de.skycoder42.androidutils 1.1
 import de.skycoder42.qtmvvm.quick 1.0
 import de.skycoder42.qtmvvm.datasync.quick 1.0
-import Qt.labs.platform 1.0 as Labs
+import Qt.labs.platform 1.0 as Labs//TODO remove
 
 Page {
 	id: mainView
@@ -99,6 +99,11 @@ Page {
 		}
 	}
 
+	FileHelper {
+		id: fileHelper
+		control: mainView.control
+	}
+
 	FileDialog {
 		id: fileDialog
 
@@ -108,7 +113,6 @@ Page {
 		linkFileMode: false
 		fileMode: isExport ? Labs.FileDialog.SaveFile : Labs.FileDialog.OpenFile
 		type: isExport ? FileChooser.CreateDocument : FileChooser.OpenDocument
-		folder: Labs.StandardPaths.writableLocation(Labs.StandardPaths.HomeLocation)
 		nameFilters: [qsTr("Datasync Export File (*.dse)"), qsTr("All Files (*)")]
 
 		function getExportFile() {
@@ -123,9 +127,9 @@ Page {
 
 		onAccepted: {
 			if(isExport)
-				control.exportUserData(file)
+				fileHelper.triggerExport(fileDialog.contentUrl);
 			else
-				control.importUserData(file)
+				fileHelper.triggerImport(fileDialog.contentUrl);
 		}
 	}
 }

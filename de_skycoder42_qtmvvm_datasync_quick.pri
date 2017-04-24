@@ -6,4 +6,8 @@ RESOURCES += \
 INCLUDEPATH += $$PWD
 
 SOURCES += \
-    $$PWD/register.cpp
+    $$PWD/register.cpp \
+    $$PWD/filehelper.cpp
+
+HEADERS += \
+    $$PWD/filehelper.h
