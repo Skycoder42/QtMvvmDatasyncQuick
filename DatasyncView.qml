@@ -105,8 +105,9 @@ Page {
 		property bool isExport: false
 
 		defaultSuffix: "dse"
-		mimeType: "text/dse"
+		linkFileMode: false
 		fileMode: isExport ? Labs.FileDialog.SaveFile : Labs.FileDialog.OpenFile
+		type: isExport ? FileChooser.CreateDocument : FileChooser.OpenDocument
 		folder: Labs.StandardPaths.writableLocation(Labs.StandardPaths.HomeLocation)
 		nameFilters: [qsTr("Datasync Export File (*.dse)"), qsTr("All Files (*)")]
 
