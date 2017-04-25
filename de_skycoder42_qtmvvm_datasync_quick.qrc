@@ -6,5 +6,4 @@
         <file alias="ic_import_export.svg">icons/ic_import_export_white_24px.svg</file>
         <file alias="ic_sync.svg">icons/ic_sync_white_24px.svg</file>
     </qresource>
-    <qresource prefix="/de/skycoder42/qtmvvm/datasync/quick/qml"/>
 </RCC>

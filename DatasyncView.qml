@@ -107,29 +107,24 @@ Page {
 	FileDialog {
 		id: fileDialog
 
-		property bool isExport: false
-
-		defaultSuffix: "dse"
-		linkFileMode: false
-		fileMode: isExport ? Labs.FileDialog.SaveFile : Labs.FileDialog.OpenFile
-		type: isExport ? FileChooser.CreateDocument : FileChooser.OpenDocument
+		defaultSuffix: ".dse"
 		nameFilters: [qsTr("Datasync Export File (*.dse)"), qsTr("All Files (*)")]
 
 		function getExportFile() {
-			fileDialog.isExport = true;
+			fileDialog.saveFile = true;
 			fileDialog.open();
 		}
 
 		function getImportFile() {
-			fileDialog.isExport = false;
+			fileDialog.saveFile = false;
 			fileDialog.open();
 		}
 
 		onAccepted: {
-			if(isExport)
-				fileHelper.triggerExport(fileDialog.contentUrl);
+			if(saveFile)
+				fileHelper.triggerExport(fileDialog.file);
 			else
-				fileHelper.triggerImport(fileDialog.contentUrl);
+				fileHelper.triggerImport(fileDialog.file);
 		}
 	}
 }
