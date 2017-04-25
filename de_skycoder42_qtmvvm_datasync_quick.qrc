@@ -1,9 +1,11 @@
 <RCC>
     <qresource prefix="/qml/views">
         <file>DatasyncView.qml</file>
+        <file>UserDataExchangeView.qml</file>
     </qresource>
     <qresource prefix="/de/skycoder42/qtmvvm/datasync/quick/icons">
         <file alias="ic_import_export.svg">icons/ic_import_export_white_24px.svg</file>
         <file alias="ic_sync.svg">icons/ic_sync_white_24px.svg</file>
+        <file alias="ic_check.svg">icons/ic_check_white_24px.svg</file>
     </qresource>
 </RCC>

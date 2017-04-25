@@ -6,10 +6,9 @@ import de.skycoder42.quickextras 2.0
 import de.skycoder42.androidutils 1.1
 import de.skycoder42.qtmvvm.quick 1.0
 import de.skycoder42.qtmvvm.datasync.quick 1.0
-import Qt.labs.platform 1.0 as Labs//TODO remove
 
 Page {
-	id: mainView
+	id: syncView
 	property DatasyncControl control: null
 
 	header: ActionBar {
@@ -101,7 +100,7 @@ Page {
 
 	FileHelper {
 		id: fileHelper
-		control: mainView.control
+		control: syncView.control
 	}
 
 	FileDialog {
