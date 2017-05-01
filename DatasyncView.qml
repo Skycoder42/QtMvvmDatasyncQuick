@@ -83,6 +83,16 @@ Page {
 				value: control ? control.syncProgress : 0
 				visible: control ? control.showProgress : false
 			}
+
+			Label {
+				id: errorLabel
+				Layout.fillWidth: true
+				wrapMode: Text.WordWrap
+				text: control ? control.authError : ""
+				visible: text != ""
+				color: "#aa0000"
+				font.bold: true
+			}
 		}
 
 		FloatingActionButton {
