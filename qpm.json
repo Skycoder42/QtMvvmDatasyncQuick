@@ -10,12 +10,12 @@
     "url": "https://github.com/Skycoder42/QtMvvmDatasyncQuick.git"
   },
   "version": {
-    "label": "1.0.0",
+    "label": "1.1.0",
     "revision": "",
     "fingerprint": ""
   },
   "dependencies": [
-    "de.skycoder42.qtmvvm.quick@1.0.4",
+    "de.skycoder42.qtmvvm.quick@1.0.5",
     "de.skycoder42.androidutils@1.1.2"
   ],
   "license": "BSD_3_CLAUSE",
