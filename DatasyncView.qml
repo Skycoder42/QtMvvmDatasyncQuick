@@ -38,6 +38,17 @@ Page {
 				text: qsTr("Import from file")
 				onClicked: fileDialog.getImportFile()
 			}
+
+			MenuSeparator {
+				visible: control ? control.canReset : false
+			}
+			MenuItem {
+				text: qsTr("Reset Identity")
+				visible: control ? control.canReset : false
+				onClicked: control.resetIdentity()
+			}
+
+			MenuSeparator {}
 			MenuItem {
 				text: qsTr("Resync")
 				onClicked: control.resync()
@@ -62,7 +73,10 @@ Page {
 				Layout.fillWidth: true
 
 				checked: control ? control.syncEnabled : false
-				onCheckedChanged: control.syncEnabled = enableSwitch.checked
+				onCheckedChanged: {
+					if(control)
+						control.syncEnabled = enableSwitch.checked
+				}
 			}
 
 			Label {
