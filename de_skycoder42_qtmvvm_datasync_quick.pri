@@ -1,13 +1,16 @@
 QT *= network jsonserializer datasync
 
-RESOURCES += \
-	$$PWD/de_skycoder42_qtmvvm_datasync_quick.qrc
-
-INCLUDEPATH += $$PWD
+HEADERS += \
+    $$PWD/filehelper.h
 
 SOURCES += \
     $$PWD/register.cpp \
     $$PWD/filehelper.cpp
 
-HEADERS += \
-    $$PWD/filehelper.h
+RESOURCES += \
+	$$PWD/de_skycoder42_qtmvvm_datasync_quick.qrc
+
+QPM_TRANSLATIONS += $$PWD/qtmvvm_datasync_quick_de.ts \
+	$$PWD/qtmvvm_datasync_quick_template.ts
+
+INCLUDEPATH += $$PWD
