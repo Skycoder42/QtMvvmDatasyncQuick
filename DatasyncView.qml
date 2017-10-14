@@ -43,6 +43,11 @@ Page {
 				visible: control ? control.canReset : false
 			}
 			MenuItem {
+				text: qsTr("Change remote server")
+				visible: control ? control.canReset : false
+				onClicked: control.changeRemote()
+			}
+			MenuItem {
 				text: qsTr("Reset Identity")
 				visible: control ? control.canReset : false
 				onClicked: control.resetIdentity()

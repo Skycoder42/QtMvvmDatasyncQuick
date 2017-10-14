@@ -2,6 +2,7 @@
     <qresource prefix="/qml/views">
         <file>DatasyncView.qml</file>
         <file>UserDataExchangeView.qml</file>
+        <file>ChangeRemoteView.qml</file>
     </qresource>
     <qresource prefix="/de/skycoder42/qtmvvm/datasync/quick/icons">
         <file alias="ic_import_export.svg">icons/ic_import_export_white_24px.svg</file>
