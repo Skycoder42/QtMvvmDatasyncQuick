@@ -25,6 +25,7 @@ AlertDialog {
 			selectByMouse: true
 
 			text: control ? control.url : ""
+			placeholderText: qsTr("wss://example.com/app/")
 			validator: UrlValidator {
 				allowedSchemes: ["wss", "ws"]
 			}
@@ -39,10 +40,11 @@ AlertDialog {
 			id: secretBox
 			text: qsTr("Secret:")
 
-			checked: control ? control.changeSecret : false
-			onCheckedChanged:  {
-				if(control)
-					control.changeSecret = checked;
+			QtMvvmBinding {
+				control: changeDialog.control
+				controlProperty: "changeSecret"
+				view: secretBox
+				viewProperty: "checked"
 			}
 		}
 
@@ -50,12 +52,14 @@ AlertDialog {
 			id: secretField
 			Layout.fillWidth: true
 			enabled: secretBox.checked
-
-			text: control ? control.serverSecret : ""
 			echoMode: TextInput.Password
-			onTextEdited: {
-				if(control)
-					control.serverSecret = text;
+			placeholderText: qsTr("Uncheck box to keep current")
+
+			QtMvvmBinding {
+				control: changeDialog.control
+				controlProperty: "serverSecret"
+				view: secretField
+				viewProperty: "text"
 			}
 		}
 
@@ -65,10 +69,13 @@ AlertDialog {
 
 		Switch {
 			id: resetSwitch
-			checked: control ? control.resetData : true
-			onCheckedChanged:  {
-				if(control)
-					control.resetData = checked;
+			checked: true
+
+			QtMvvmBinding {
+				control: changeDialog.control
+				controlProperty: "resetData"
+				view: resetSwitch
+				viewProperty: "checked"
 			}
 		}
 	}

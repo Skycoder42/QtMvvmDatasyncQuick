@@ -77,10 +77,11 @@ Page {
 				text: qsTr("Synchronization enabled")
 				Layout.fillWidth: true
 
-				checked: control ? control.syncEnabled : false
-				onCheckedChanged: {
-					if(control)
-						control.syncEnabled = enableSwitch.checked
+				QtMvvmBinding {
+					control: syncView.control
+					controlProperty: "syncEnabled"
+					view: enableSwitch
+					viewProperty: "checked"
 				}
 			}
 
